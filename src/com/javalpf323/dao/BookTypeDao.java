@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.javalpf323.model.BookType;
+import com.javalpf323.util.DbUtil;
 import com.javalpf323.util.StringUtil;
 
 
@@ -42,5 +43,21 @@ public class BookTypeDao {
 		}
 		PreparedStatement ps=conn.prepareStatement(sb.toString().replaceFirst("and", "where"));
 		return ps.executeQuery();
+	}
+	
+	public int UpdateBookType(Connection conn,BookType bookType) throws SQLException {
+		String sql="update t_booktype set bookTypeName=?, bookDesc=? where id=?";
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setString(1, bookType.getBookTypeName());
+			ps.setString(2, bookType.getBookDesc());
+			ps.setInt(3, bookType.getId());
+			return ps.executeUpdate();
+	}
+	
+	public int DeleteBookType(Connection conn,int id) throws SQLException {
+		String sql="delete from t_booktype where id=? ";
+		PreparedStatement ps=conn.prepareStatement(sql);
+		ps.setInt(1, id);
+		return ps.executeUpdate();
 	}
 }
