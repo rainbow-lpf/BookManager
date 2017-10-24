@@ -253,6 +253,8 @@ public class BookTypeManagerIFram extends JInternalFrame {
 		try {
 			BookTypeDao bookTypeDao=new BookTypeDao();
 			conn=DbUtil.getConnection();
+			int select=JOptionPane.showConfirmDialog(null, "ÊÇ·ñÈ·ÈÏÉ¾³ý");
+			if(select==0) {
 			int result=bookTypeDao.DeleteBookType(conn, id);
 			if(result>0) {
 				JOptionPane.showMessageDialog(null, "É¾³ý³É¹¦");
@@ -263,6 +265,7 @@ public class BookTypeManagerIFram extends JInternalFrame {
 			}else {
 				JOptionPane.showMessageDialog(null, "É¾³ýÊ§°Ü");
 			}
+		}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

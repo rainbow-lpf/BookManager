@@ -7,6 +7,10 @@ package com.javalpf323.model;
  */
 public class BookType {
 
+	@Override
+	public String toString() {
+		return this.bookTypeName;
+	}
 	private int id;
 	private String bookTypeName;
 	private String bookDesc;

@@ -83,10 +83,24 @@ public class MainFrm extends JFrame {
 		mnNewMenu.add(menu);
 		
 		JMenuItem menuItem_3 = new JMenuItem("\u56FE\u4E66\u6DFB\u52A0");
+		menuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BookAddIFram bookAdd=new BookAddIFram();
+				bookAdd.setVisible(true);
+				table.add(bookAdd);
+			}
+		});
 		menuItem_3.setIcon(new ImageIcon(MainFrm.class.getResource("/images/add.png")));
 		menu.add(menuItem_3);
 		
 		JMenuItem menuItem_4 = new JMenuItem("\u56FE\u4E66\u7EF4\u62A4");
+		menuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BookManagerIFram bm=new BookManagerIFram();
+				bm.setVisible(true);
+				table.add(bm);
+			}
+		});
 		menuItem_4.setIcon(new ImageIcon(MainFrm.class.getResource("/images/edit.png")));
 		menu.add(menuItem_4);
 		
@@ -123,6 +137,7 @@ public class MainFrm extends JFrame {
 		 table = new JDesktopPane();
 		table.setBackground(Color.WHITE);
 		contentPane.add(table, BorderLayout.CENTER);
+		//设置最大化
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 	}
 }
